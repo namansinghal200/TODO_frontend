@@ -1,0 +1,73 @@
+/* Header.css */
+
+.header-container {
+    height: 60px;
+    background-color: #1a202c;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo a {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-logo a:hover {
+    color: #00d5fa;
+}
+
+.header-user {
+    position: relative;
+}
+
+.header-avatar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-username {
+    color: #fff;
+    font-size: 16px;
+}
+
+.header-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    z-index: 10;
+}
+
+.header-dropdown-content {
+    display: block;
+}
+
+.header-dropdown-item {
+    padding: 12px;
+    cursor: pointer;
+    color: #cbd5e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-dropdown-item:hover {
+    background-color: #4a5568;
+    color: #fff;
+}

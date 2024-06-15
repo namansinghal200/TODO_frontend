@@ -1,0 +1,124 @@
+/* Login.css */
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #00d5fa;
+}
+
+.form-error {
+    color: #f44336;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.dropzone-box {
+    padding: 1rem;
+    border: 2px dashed #ccc;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dropzone-box:hover {
+    border-color: #00d5fa;
+}
+
+.dropzone-box>input {
+    display: none;
+}
+
+.picture-preview {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.picture-preview img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+.button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00d5fa;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #00afb9;
+}
+
+.switch-page {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.switch-page:hover {
+    color: #00d5fa;
+}
+
+.login-button:hover {
+    background-color: #28377c;
+}
+
+.login-switch {
+    margin-top: 1rem;
+    text-align: center;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.login-switch:hover {
+    text-decoration: underline;
+}

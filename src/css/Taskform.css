@@ -1,0 +1,116 @@
+/* TaskForm.css */
+
+/* General styles specific to TaskForm */
+.taskform-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styles specific to TaskForm */
+.taskform-container {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title specific to TaskForm */
+.taskform-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Form group specific to TaskForm */
+.taskform-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.taskform-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Input, select, and button styles specific to TaskForm */
+.taskform-group input,
+.taskform-group select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.taskform-group input:focus,
+.taskform-group select:focus {
+    border-color: #007bff;
+}
+
+/* Button styles specific to TaskForm */
+.taskform-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskform-submit-button,
+.taskform-back-button {
+    width: 48%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.taskform-submit-button {
+    background-color: #007bff;
+}
+
+.taskform-submit-button:hover {
+    background-color: #0056b3;
+}
+
+.taskform-back-button {
+    background-color: #6c757d;
+}
+
+.taskform-back-button:hover {
+    background-color: #5a6268;
+}
+
+/* Error message specific to TaskForm */
+.taskform-error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+/* Additional responsive design specific to TaskForm */
+@media (max-width: 600px) {
+    .taskform-container {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .taskform-title {
+        font-size: 1.5rem;
+    }
+}
