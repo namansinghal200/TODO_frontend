@@ -37,7 +37,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "../sevices/api";
+import axios from "../services/api";
 import { setTask } from "../redux/TaskSlice";
 import Header from "./Header";
 import TaskForm from "../components/Taskform"; // Assuming TaskForm is a separate component
@@ -46,7 +46,6 @@ const Task = () => {
   const { id } = useParams();
   const [currentTask, setCurrentTask] = useState(null);
   const dispatch = useDispatch();
-
   useEffect(() => {
     async function fetchTask() {
       try {

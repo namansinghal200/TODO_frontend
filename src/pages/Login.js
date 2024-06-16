@@ -336,7 +336,7 @@ import {
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Dropzone from "react-dropzone";
-import axios from "../sevices/api.js";
+import axios from "../services/api.js";
 import { setLogin } from "../redux/UserSlice";
 import "../css/Login.css"; // Import your CSS file
 

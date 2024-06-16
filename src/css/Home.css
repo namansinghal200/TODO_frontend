@@ -1,4 +1,4 @@
-/* Home.css */
+/*Home.css*/
 
 .home-container {
     font-family: Arial, sans-serif;
@@ -95,3 +95,20 @@
 .task-link:hover {
     text-decoration: underline;
 }
+
+.task-delete-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 0.5rem;
+}
+
+.task-delete-button:hover {
+    background-color: #d9363e;
+}
+

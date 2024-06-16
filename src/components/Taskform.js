@@ -190,7 +190,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/Taskform.css";
 import dayjs from "dayjs";
-import axiosInstance from "../sevices/api.js";
+import axiosInstance from "../services/api.js";
 import { useNavigate } from "react-router-dom";
 
 const TaskForm = ({ mode = "edit", task }) => {

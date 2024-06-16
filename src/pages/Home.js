@@ -104,16 +104,19 @@
 // export default Home;
 
 import React, { useState, useEffect } from "react";
-import axios from "../sevices/api";
+import axios from "../services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setTasks } from "../redux/TaskSlice";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Task from "../components/Task";
 import "../css/Home.css"; // Import your CSS file
+import { deleteTask } from "../redux/TaskSlice";
+import axiosInstance from "../services/api.js";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [typeFilter, setTypeFilter] = useState("");
   const [dayFilter, setDayFilter] = useState("");
   const types = ["default", "personal", "shopping", "wishlist", "work"];
@@ -123,13 +126,12 @@ const Home = () => {
     { label: "Last Thirty", value: "thirty" },
   ];
 
+  const { tasks } = useSelector((state) => state.task);
   useEffect(() => {
     axios.get(`/task?type=${typeFilter}&day=${dayFilter}`).then((res) => {
       dispatch(setTasks(res.data.tasks));
     });
-  }, [typeFilter, dayFilter]);
-
-  const { tasks } = useSelector((state) => state.task);
+  }, [typeFilter, dayFilter, tasks]);
 
   const handleTypeChange = (e) => {
     setTypeFilter(e.target.value);
@@ -138,6 +140,18 @@ const Home = () => {
   const clearFilters = () => {
     setTypeFilter("");
     setDayFilter("");
+  };
+
+  const handleDelete = async (taskID) => {
+    try {
+      await axiosInstance.delete(`task/${taskID}`); // Await the API call
+      //console.log(response);
+      dispatch(deleteTask(taskID));
+      navigate("/home", { replace: true }); // Navigate after state update
+    } catch (error) {
+      console.error("Error deleting task:", error);
+      // Handle errors (e.g., display error message to user)
+    }
   };
 
   return (
@@ -187,8 +201,14 @@ const Home = () => {
           {tasks.map((task, idx) => (
             <div className="task-item" key={`${idx}-${task.id}`}>
               <Link to={`/task/${task._id}`} className="task-link">
-                <Task task={task} />
+                <Task task={task} onDelete={() => handleDelete(task._id)} />
               </Link>
+              <button
+                className="task-delete-button"
+                onClick={() => handleDelete(task._id)}
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>
