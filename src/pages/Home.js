@@ -122,8 +122,8 @@ const Home = () => {
   const types = ["default", "personal", "shopping", "wishlist", "work"];
   const days = [
     { label: "Today", value: "today" },
-    { label: "Last seven", value: "seven" },
-    { label: "Last Thirty", value: "thirty" },
+    { label: "This Week", value: "week" },
+    { label: "This Month", value: "month" },
   ];
 
   const { tasks } = useSelector((state) => state.task);
