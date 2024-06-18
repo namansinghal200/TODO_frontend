@@ -96,3 +96,27 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
+
+.subtasks-container {
+  padding: 20px;
+}
+
+.subtask-list {
+  margin-top: 20px;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.subtask-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.subtask-item button {
+  margin-left: 10px;
+}

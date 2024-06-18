@@ -1,0 +1,187 @@
+.subtasks-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.subtasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.subtask-list {
+  margin-bottom: 20px;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.subtask-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.subtask-item span {
+  flex-grow: 1;
+}
+
+.subtask-item span.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.priority-display {
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.priority-dropdown {
+  padding: 8px 30px 8px 8px; /* Adjusted padding for consistency */
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: 1px solid #ced4da;
+  position: relative; /* Ensure proper alignment */
+}
+
+.priority-dropdown::after {
+  content: "\25BC"; /* Unicode for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 8px; /* Adjusted position to align with delete button */
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure dropdown arrow doesn't interfere with clicking */
+  font-size: 14px; /* Adjusted size to match delete button */
+}
+
+.priority-dropdown.high-priority {
+  color: white;
+  background-color: #dc3545; /* Red */
+}
+
+.priority-dropdown.medium-priority {
+  color: white;
+  background-color: #fd7e14; /* Orange */
+}
+
+.priority-dropdown.low-priority {
+  color: black;
+  background-color: #ffc107; /* Yellow */
+}
+
+.priority-dropdown:focus {
+  outline: none;
+}
+
+.edit-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.radio-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.radio-buttons label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  color: #495057;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.radio-buttons label:hover {
+  background-color: #ced4da;
+}
+
+.radio-buttons input[type="radio"] {
+  display: none;
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.add-subtask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-subtask input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.add-button {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-button:hover,
+.add-button:hover,
+.back-button:hover {
+  opacity: 0.8;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
