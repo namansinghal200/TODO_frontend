@@ -405,7 +405,16 @@ const Subtasks = () => {
       <div className="subtask-list">
         {subtasks && subtasks.length > 0 ? (
           subtasks.map((subtask) => (
-            <div key={subtask._id} className="subtask-item">
+            <div
+              key={subtask._id}
+              className={`subtask-item ${
+                subtask.priority === "High"
+                  ? "high-priority"
+                  : subtask.priority === "Medium"
+                  ? "medium-priority"
+                  : "low-priority"
+              }`}
+            >
               <input
                 type="checkbox"
                 checked={subtask.completed || false}

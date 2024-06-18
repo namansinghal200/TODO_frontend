@@ -38,6 +38,21 @@
   border-radius: 4px;
   margin-bottom: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+outline: 1px solid;
+}
+.subtask-item.high-priority {
+    outline-color: #dc3545;
+    /* Red for high priority */
+}
+
+.subtask-item.medium-priority {
+    outline-color: #fd7e14;
+    /* Orange for medium priority */
+}
+
+.subtask-item.low-priority {
+    outline-color: #ffc107;
+    /* Yellow for low priority */
 }
 
 .subtask-item input[type="checkbox"] {
