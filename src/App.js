@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Task from "./pages/Task";
 import TaskCreate from "./pages/CreateTask";
 import Subtasks from "./pages/Subtasks";
+import Collaborators from "./pages/Collabs.js";
 import { useSelector } from "react-redux";
 function App() {
   const { user } = useSelector((state) => state.user);
@@ -25,6 +26,7 @@ function App() {
         <Route path="/task/:id" element={<Task />}></Route>
         <Route path="/task/create" element={<TaskCreate />}></Route>
         <Route path="/task/:taskId/subtask" element={<Subtasks />} />
+        <Route path="/task/:taskId/collaborators" element={<Collaborators />} />
       </Routes>
     </Router>
   );

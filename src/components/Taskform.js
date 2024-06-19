@@ -89,6 +89,7 @@ const TaskForm = ({ mode = "edit", task }) => {
         time: task.time,
         status: task.status || "",
         collaborators: task.collaborators || "", // Set collaborators if editing
+
       });
     }
   }, [mode, task]);
@@ -107,30 +108,6 @@ const TaskForm = ({ mode = "edit", task }) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const errors = validate();
-  //   setErrors(errors);
-  //   if (Object.keys(errors).length === 0) {
-  //     const formData = { ...values };
-  //     formData.collaborators = formData.collaborators
-  //       .split(",") // Split by comma
-  //       .map((collab) => collab.trim()); // Trim spaces
-
-  //     if (mode === "edit") {
-  //       axiosInstance.put(`/task/${task._id}`, formData).then((res) => {
-  //         navigate("/home");
-  //       });
-  //     } else {
-  //       axiosInstance.post(`/task/create`, formData).then((res) => {
-  //         navigate("/home");
-  //       });
-  //     }
-  //   }
-  // };
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -189,6 +166,7 @@ const TaskForm = ({ mode = "edit", task }) => {
             type="text"
             value={values.collaborators}
             onChange={handleChange}
+            placeholder = {mode === "edit" ? "enter new collaborators" : "enter your collaborators"}
           />
         </div>
 
