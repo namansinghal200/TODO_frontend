@@ -1,202 +1,258 @@
+:root {
+    /* Light mode colors */
+    --background-color: #f8f9fa;
+    --text-color: #000;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --subtask-background: #fff;
+    --checkbox-color: #6c757d;
+
+    --button-color: #007bff;
+    --button-hover-opacity: 0.8;
+    --add-button-background: #28a745;
+    --delete-button-background: #dc3545;
+
+    --priority-high: #dc3545;
+    --priority-medium: #fd7e14;
+    --priority-low: #ffc107;
+}
+
+body.dark-mode {
+    /* Dark mode colors */
+    --background-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    --subtask-background: #333;
+    --checkbox-color: #aaa;
+
+    --button-color: #03a9f4;
+    --add-button-background: #00c853;
+    --delete-button-background: #d50000;
+
+    --priority-high: #f44336;
+    --priority-medium: #ff9800;
+    --priority-low: #ffeb3b;
+}
+
 .subtasks-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .subtasks-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .back-button {
-  background: none;
-  border: none;
-  color: #007bff;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0;
-  text-decoration: underline;
+    background: none;
+    border: none;
+    color: var(--button-color);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.back-button:hover {
+    opacity: var(--button-hover-opacity);
 }
 
 .subtask-list {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .subtask-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-outline: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--subtask-background);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px var(--border-color);
+    outline: 1px solid;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
+
 .subtask-item.high-priority {
-    outline-color: #dc3545;
-    /* Red for high priority */
+    outline-color: var(--priority-high);
 }
 
 .subtask-item.medium-priority {
-    outline-color: #fd7e14;
-    /* Orange for medium priority */
+    outline-color: var(--priority-medium);
 }
 
 .subtask-item.low-priority {
-    outline-color: #ffc107;
-    /* Yellow for low priority */
+    outline-color: var(--priority-low);
 }
 
 .subtask-item input[type="checkbox"] {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .subtask-item span {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .subtask-item span.completed {
-  text-decoration: line-through;
-  color: #6c757d;
+    text-decoration: line-through;
+    color: var(--checkbox-color);
 }
 
 .priority-display {
-  padding: 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .priority-dropdown {
-  padding: 8px 30px 8px 8px; /* Adjusted padding for consistency */
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: white;
-  border: 1px solid #ced4da;
-  position: relative; /* Ensure proper alignment */
+    padding: 8px 30px 8px 8px;
+    /* Adjusted padding for consistency */
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--subtask-background);
+    border: 1px solid var(--border-color);
+    position: relative;
+    /* Ensure proper alignment */
 }
 
 .priority-dropdown::after {
-  content: "\25BC"; /* Unicode for down arrow */
-  position: absolute;
-  top: 50%;
-  right: 8px; /* Adjusted position to align with delete button */
-  transform: translateY(-50%);
-  pointer-events: none; /* Ensure dropdown arrow doesn't interfere with clicking */
-  font-size: 14px; /* Adjusted size to match delete button */
+    content: "\25BC";
+    /* Unicode for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    /* Adjusted position to align with delete button */
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* Ensure dropdown arrow doesn't interfere with clicking */
+    font-size: 14px;
+    /* Adjusted size to match delete button */
 }
 
 .priority-dropdown.high-priority {
-  color: white;
-  background-color: #dc3545; /* Red */
+    color: white;
+    background-color: var(--priority-high);
+    /* Red */
 }
 
 .priority-dropdown.medium-priority {
-  color: white;
-  background-color: #fd7e14; /* Orange */
+    color: white;
+    background-color: var(--priority-medium);
+    /* Orange */
 }
 
 .priority-dropdown.low-priority {
-  color: black;
-  background-color: #ffc107; /* Yellow */
+    color: black;
+    background-color: var(--priority-low);
+    /* Yellow */
 }
 
 .priority-dropdown:focus {
-  outline: none;
+    outline: none;
 }
 
 .edit-input {
-  flex-grow: 1;
-  padding: 8px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  margin-right: 5px;
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 5px;
 }
 
 .radio-buttons {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .radio-buttons label {
-  display: inline-block;
-  cursor: pointer;
-  padding: 8px 16px;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  color: #495057;
-  transition: background-color 0.3s ease;
-  margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #e9ecef;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: #495057;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
 }
 
 .radio-buttons label:hover {
-  background-color: #ced4da;
+    background-color: var(--border-color);
 }
 
 .radio-buttons input[type="radio"] {
-  display: none;
+    display: none;
 }
 
-.radio-buttons input[type="radio"]:checked + label {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+.radio-buttons input[type="radio"]:checked+label {
+    background-color: var(--button-color);
+    color: white;
+    border-color: var(--button-color);
 }
 
 .add-subtask {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .add-subtask input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  margin-right: 10px;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 10px;
 }
 
 .add-button {
-  background-color: #28a745;
-  border: none;
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: var(--add-button-background);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.add-button:hover {
+    opacity: var(--button-hover-opacity);
 }
 
 .delete-button {
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 10px;
+    background-color: var(--delete-button-background);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: opacity 0.3s;
 }
 
-.delete-button:hover,
-.add-button:hover,
-.back-button:hover {
-  opacity: 0.8;
+.delete-button:hover {
+    opacity: var(--button-hover-opacity);
 }
 
 .completed {
-  text-decoration: line-through;
-  color: #6c757d;
+    text-decoration: line-through;
+    color: var(--checkbox-color);
 }

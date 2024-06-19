@@ -263,6 +263,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../services/api";
+import Header from "./Header.js";
 import "../css/Subtasks.css";
 
 const Subtasks = () => {
@@ -396,6 +397,7 @@ const Subtasks = () => {
 
   return (
     <div className="subtasks-container">
+      <Header />
       <div className="subtasks-header">
         <button className="back-button" onClick={() => navigate("/home")}>
           &#8592; Back to Home

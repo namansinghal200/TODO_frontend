@@ -41,6 +41,7 @@ import axios from "../services/api";
 import { setTask } from "../redux/TaskSlice";
 import Header from "./Header";
 import TaskForm from "../components/Taskform"; // Assuming TaskForm is a separate component
+import "../css/Taskform.css";
 
 const Task = () => {
   const { id } = useParams();
@@ -65,9 +66,11 @@ const Task = () => {
 
   return (
     <div>
-      <Header />
-      <div className="container">
-        <TaskForm task={currentTask} />
+      <div className="taskform-container">
+        <Header />
+        <div>
+          <TaskForm task={currentTask} />
+        </div>
       </div>
     </div>
   );

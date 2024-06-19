@@ -1,16 +1,66 @@
+/* Light Mode Variables */
+:root {
+    --header-background-color: #f0f0f0;
+    /* Lighter background for light mode */
+    --header-text-color: #333;
+    /* Darker text for light mode */
+    --dropdown-background-color: #fff;
+    /* White background for dropdown */
+    --dropdown-border-color: #ccc;
+    /* Light gray border for dropdown */
+    --dropdown-item-hover-background-color: #eee;
+    --button-background-color: #333;
+    --button-hover: rgba(0, 0, 0, 0.1);
+    /* Light gray hover for dropdown */
+    --background-color: #f0f0f0;
+    --text-color: #333;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --header-background-color: #222;
+    /* Darker background for dark mode */
+    --header-text-color: #fff;
+    /* Lighter text for dark mode */
+    --dropdown-background-color: #333;
+    /* Slightly darker dropdown background */
+    --dropdown-border-color: #444;
+    /* Adjust border color for better contrast */
+    --dropdown-item-hover-background-color: #444;
+    /* Adjust hover background for contrast */
+    --button-background-color: #fff;
+    --button-hover: rgba(255, 255, 255, 0.1);
+    --background-color: #222;
+    --text-color: #fff;
+}
+
+/* General Styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header Styles */
 .header-container {
-    height: 60px;
-    background-color: #1a202c;
-    padding: 0 20px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    box-shadow: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-title {
+    color: var(--header-text-color);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .header-logo a {
     font-size: 24px;
-    color: #fff;
+    color: var(--header-text-color);
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -22,6 +72,10 @@
 
 .header-user {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Add gap between avatar and toggle button */
 }
 
 .header-avatar {
@@ -45,7 +99,7 @@
 }
 
 .header-username {
-    color: #fff;
+    color: var(--header-text-color);
     font-size: 16px;
     transition: color 0.3s ease;
 }
@@ -54,8 +108,8 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #2d3748;
-    border: 1px solid #4a5568;
+    background-color: var(--dropdown-background-color);
+    border: 1px solid var(--dropdown-border-color);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 120px;
@@ -86,3 +140,53 @@
     background-color: #4a5568;
     color: #fff;
 }
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--button-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+
+    .header-logo a {
+        font-size: 20px;
+    }
+
+    .header-user {
+        gap: 10px;
+    }
+
+    .dark-mode-toggle {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Your existing CSS code */
+
+
+
+
+
+
+

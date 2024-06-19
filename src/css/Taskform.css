@@ -1,27 +1,67 @@
-/* TaskForm.css */
+:root {
+    /* Light mode colors */
+    --background-color: #f0f2f5;
+    --container-background: #fff;
+    --text-color: #333;
+    --title-color: #007bff;
+    --input-background: #fff;
+    --input-border: #ccc;
+    --input-text-color: #333;
+    --input-placeholder-color: #888;
+    --input-focus-border: #007bff;
+    --input-focus-shadow: rgba(0, 123, 255, 0.25);
+    --submit-button-background: #007bff;
+    --submit-button-hover: #0056b3;
+    --back-button-background: #6c757d;
+    --back-button-hover: #5a6268;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --error-color: red;
+}
+
+body.dark-mode {
+    /* Dark mode colors */
+    --background-color: #1e1e1e;
+    --container-background: #333;
+    --text-color: #e0e0e0;
+    --title-color: #03a9f4;
+    --input-background: #555;
+    --input-border: #666;
+    --input-text-color: #e0e0e0;
+    --input-placeholder-color: #bbb;
+    --input-focus-border: #03a9f4;
+    --input-focus-shadow: rgba(3, 169, 244, 0.25);
+    --submit-button-background: #03a9f4;
+    --submit-button-hover: #0288d1;
+    --back-button-background: #555;
+    --back-button-hover: #444;
+    --box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    --error-color: #ff5555;
+}
 
 /* General styles specific to TaskForm */
 .taskform-body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Container styles specific to TaskForm */
 .taskform-container {
-    background-color: #fff;
+    background-color: var(--container-background);
     padding: 2rem;
     margin: 2rem auto;
     width: 90%;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* Form title specific to TaskForm */
@@ -29,7 +69,7 @@
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.75rem;
-    color: #007bff;
+    color: var(--title-color);
     font-weight: 600;
 }
 
@@ -50,26 +90,37 @@
 .taskform-group select {
     padding: 10px 15px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-background);
+    color: var(--input-text-color);
     border-radius: 4px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.taskform-group input::placeholder,
+.taskform-group select::placeholder {
+    color: var(--input-placeholder-color);
 }
 
 .taskform-group input:focus,
 .taskform-group select:focus {
-    border-color: #007bff;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 5px var(--input-focus-shadow);
 }
 
 /* Button styles specific to TaskForm */
 .taskform-buttons {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+    /* Add gap between buttons */
 }
 
 .taskform-submit-button,
 .taskform-back-button {
-    width: 48%;
+    flex: 1;
+    /* Ensure buttons take equal space */
     padding: 10px 15px;
     font-size: 1rem;
     border-radius: 4px;
@@ -81,24 +132,24 @@
 }
 
 .taskform-submit-button {
-    background-color: #007bff;
+    background-color: var(--submit-button-background);
 }
 
 .taskform-submit-button:hover {
-    background-color: #0056b3;
+    background-color: var(--submit-button-hover);
 }
 
 .taskform-back-button {
-    background-color: #6c757d;
+    background-color: var(--back-button-background);
 }
 
 .taskform-back-button:hover {
-    background-color: #5a6268;
+    background-color: var(--back-button-hover);
 }
 
 /* Error message specific to TaskForm */
 .taskform-error {
-    color: red;
+    color: var(--error-color);
     font-size: 0.875rem;
     margin-top: 5px;
 }
@@ -112,5 +163,17 @@
 
     .taskform-title {
         font-size: 1.5rem;
+    }
+
+    .taskform-group input,
+    .taskform-group select {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+    }
+
+    .taskform-submit-button,
+    .taskform-back-button {
+        padding: 8px 12px;
+        font-size: 0.875rem;
     }
 }

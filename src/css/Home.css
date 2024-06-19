@@ -2,8 +2,10 @@
 
 .home-container {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
     min-height: 100vh;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .home-content {
@@ -17,11 +19,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .filter-section {
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .filter-section label,
@@ -31,8 +35,11 @@
 
 .filter-section select {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--element-background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .filter-buttons {
@@ -42,38 +49,40 @@
 
 .filter-button {
     padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    border: 1px solid var(--border-color);
+    background-color: var(--element-background-color);
     cursor: pointer;
     border-radius: 4px;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .filter-button.active {
-    background-color: #ff4d4f;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
     border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
 .create-task-link {
     text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
     padding: 0.5rem 1rem;
-    background-color: #ff6347;
-    color: #fff;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .create-task-link:hover {
-    background-color: #f5493f;
+    background-color: var(--primary-color-hover);
+    color: var(--primary-text-color);
 }
 
 .clear-filters-button {
     padding: 0.5rem 1rem;
-    background-color: #ccc;
-    color: #333;
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -81,13 +90,13 @@
 }
 
 .clear-filters-button:hover {
-    background-color: #bbb;
+    background-color: var(--secondary-color-hover);
 }
 
 .show-subtasks-button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -95,22 +104,23 @@
 }
 
 .show-subtasks-button:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color-hover);
 }
 
 .task-container {
-    background-color: #fff;
+    background-color: var(--element-background-color);
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     margin-bottom: 2rem;
+    transition: background-color 0.3s;
 }
 
 .task-container h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -122,13 +132,12 @@
 
 .task-item {
     flex: 1 0 calc(25% - 1rem);
-    /* 4 items per row with 1rem gap */
-    background-color: #fff;
+    background-color: var(--element-background-color);
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    /* Ensure relative positioning for absolute buttons */
+    transition: background-color 0.3s;
 }
 
 .task-link {
@@ -141,8 +150,8 @@
 }
 
 .task-delete-button {
-    background-color: #ff4d4f;
-    color: white;
+    background-color: var(--delete-color);
+    color: var(--primary-text-color);
     border: none;
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -156,32 +165,72 @@
 }
 
 .task-delete-button:hover {
-    background-color: #d9363e;
+    background-color: var(--delete-color-hover);
 }
 
 /* Adjustments for Show Subtasks button */
 .show-subtasks-button {
     margin-top: 0.5rem;
-    /* Space above the button */
 }
 
 @media (max-width: 1200px) {
     .task-item {
         flex: 1 0 calc(33.33% - 1rem);
-        /* 3 items per row with 1rem gap */
     }
 }
 
 @media (max-width: 768px) {
     .task-item {
         flex: 1 0 calc(50% - 1rem);
-        /* 2 items per row with 1rem gap */
     }
 }
 
 @media (max-width: 576px) {
     .task-item {
         flex: 1 0 calc(100% - 1rem);
-        /* 1 item per row */
     }
+}
+
+@media (max-width: 768px) {
+    .filters-container {
+        flex-direction: column;
+    }
+
+    .filter-section,
+    .filter-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-section {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Dark mode variables */
+:root {
+    --background-color: #f5f5f5;
+    --text-color: #222;
+    --border-color: #ddd;
+    --element-background-color: #f8f8f8;
+    --primary-color: #ff6347;
+    --primary-color-hover: #f5493f;
+    --primary-text-color: #fff;
+    --secondary-color: #3399ff;
+    --secondary-color-hover: #0056b3;
+    --delete-color: #ff4d4f;
+    --delete-color-hover: #d9363e;
+}
+
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --element-background-color: #1e1e1e;
+    --primary-color: #bb86fc;
+    --primary-color-hover: #9b64db;
+    --secondary-color: #03dac6;
+    --secondary-color-hover: #01a89d;
+    --delete-color: #cf6679;
+    --delete-color-hover: #b15562;
 }

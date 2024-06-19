@@ -1,12 +1,11 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "../services/api";
 // import { useDispatch, useSelector } from "react-redux";
-// import { setTasks } from "../redux/TaskSlice";
+// import { setTasks, deleteTask } from "../redux/TaskSlice";
 // import Header from "./Header";
 // import { Link, useNavigate } from "react-router-dom";
 // import Task from "../components/Task";
 // import "../css/Home.css"; // Import your CSS file
-// import { deleteTask } from "../redux/TaskSlice";
 // import axiosInstance from "../services/api.js";
 // import dayjs from "dayjs";
 
@@ -28,7 +27,7 @@
 //     axios.get(`/task?type=${typeFilter}&day=${dayFilter}`).then((res) => {
 //       dispatch(setTasks(res.data.tasks));
 //     });
-//   }, [typeFilter, dayFilter, tasks]);
+//   }, [typeFilter, dayFilter, dispatch]);
 
 //   const handleTypeChange = (e) => {
 //     setTypeFilter(e.target.value);
@@ -113,19 +112,26 @@
 //               <h2>Pending Tasks</h2>
 //               <div className="task-items">
 //                 {pendingTasks.map((task, idx) => (
-//                   <div className="task-item" key={`${idx}-${task.id}`}>
+//                   <div className="task-item" key={`${idx}-${task._id}`}>
 //                     <Link to={`/task/${task._id}`} className="task-link">
 //                       <Task
 //                         task={task}
 //                         onDelete={() => handleDelete(task._id)}
 //                       />
 //                     </Link>
-//                     <button
-//                       className="task-delete-button"
-//                       onClick={() => handleDelete(task._id)}
-//                     >
-//                       Delete
-//                     </button>
+//                     <div>
+//                       <Link to={`/task/${task._id}/subtask`}>
+//                         <button className="show-subtasks-button">
+//                           Show Subtasks
+//                         </button>
+//                       </Link>
+//                       <button
+//                         className="task-delete-button"
+//                         onClick={() => handleDelete(task._id)}
+//                       >
+//                         Delete
+//                       </button>
+//                     </div>
 //                   </div>
 //                 ))}
 //               </div>
@@ -137,12 +143,17 @@
 //               <h2>Completed Tasks</h2>
 //               <div className="task-items">
 //                 {completedTasks.map((task, idx) => (
-//                   <div className="task-item" key={`${idx}-${task.id}`}>
+//                   <div className="task-item" key={`${idx}-${task._id}`}>
 //                     <Link to={`/task/${task._id}`} className="task-link">
 //                       <Task
 //                         task={task}
 //                         onDelete={() => handleDelete(task._id)}
 //                       />
+//                     </Link>
+//                     <Link to={`/task/${task._id}/subtask`}>
+//                       <button className="show-subtasks-button">
+//                         Show Subtasks
+//                       </button>
 //                     </Link>
 //                     <button
 //                       className="task-delete-button"
@@ -161,7 +172,7 @@
 //               <h2>Deadline Missed</h2>
 //               <div className="task-items">
 //                 {missedDeadlineTasks.map((task, idx) => (
-//                   <div className="task-item" key={`${idx}-${task.id}`}>
+//                   <div className="task-item" key={`${idx}-${task._id}`}>
 //                     <Link to={`/task/${task._id}`} className="task-link">
 //                       <Task
 //                         task={task}
@@ -335,17 +346,19 @@ const Home = () => {
                         onDelete={() => handleDelete(task._id)}
                       />
                     </Link>
-                    <Link to={`/task/${task._id}/subtask`}>
-                      <button className="show-subtasks-button">
-                        Show Subtasks
+                    <div>
+                      <Link to={`/task/${task._id}/subtask`}>
+                        <button className="show-subtasks-button">
+                          Show Subtasks
+                        </button>
+                      </Link>
+                      <button
+                        className="task-delete-button"
+                        onClick={() => handleDelete(task._id)}
+                      >
+                        Delete
                       </button>
-                    </Link>
-                    <button
-                      className="task-delete-button"
-                      onClick={() => handleDelete(task._id)}
-                    >
-                      Delete
-                    </button>
+                    </div>
                   </div>
                 ))}
               </div>
