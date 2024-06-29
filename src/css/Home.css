@@ -99,6 +99,21 @@
     background-color: #0056b3;
 }
 
+.show-subtaskss-button {
+    padding: 0.5rem 1rem;
+    background-color: #8400ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.show-subtaskss-button:hover {
+    background-color: #b300ad;
+}
+
 .task-container {
     background-color: #fff;
     padding: 1rem;
@@ -124,6 +139,7 @@
 .task-item {
     flex: 1 0 calc(25% - 1rem);
     /* 4 items per row with 1rem gap */
+    max-width: 29.5%;
     background-color: #fff;
     padding: 1rem;
     border-radius: 4px;
@@ -147,12 +163,12 @@
     border: none;
     cursor: pointer;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    /* font-size: 0.8rem; */
     border-radius: 4px;
     transition: background-color 0.3s;
     margin-top: 0.5rem;
     position: absolute;
-    bottom: 0.5rem;
+    /* bottom: 0.5rem; */
     right: 0.5rem;
 }
 

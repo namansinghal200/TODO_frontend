@@ -571,8 +571,8 @@ const Home = () => {
                       </button>
                     </Link>
                     <Link to={`/task/${task._id}/collaborators`}>
-                      <button className="show-collaborators-button">
-                        Show Collaborators
+                      <button className="show-subtaskss-button">
+                        Collaborators
                       </button>
                     </Link>
                     <button
@@ -605,8 +605,8 @@ const Home = () => {
                       </button>
                     </Link>
                     <Link to={`/task/${task._id}/collaborators`}>
-                      <button className="show-collaborators-button">
-                        Show Collaborators
+                      <button className="show-subtaskss-button">
+                        Collaborators
                       </button>
                     </Link>
                     <button
@@ -639,7 +639,7 @@ const Home = () => {
                       </button>
                     </Link>
                     <Link to={`/task/${task._id}/collaborators`}>
-                      <button className="show-subtasks-button">
+                      <button className="show-subtaskss-button">
                         Collaborators
                       </button>
                     </Link>
